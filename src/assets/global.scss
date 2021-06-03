@@ -1,0 +1,92 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+$green: "#42b983";
+
+body {
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+}
+
+.green-text {
+  color: #{$green} !important;
+}
+.green-bg {
+  background-color: #{$green} !important;
+}
+.white-text {
+  color: white !important;
+}
+
+.full-width {
+  width: 100%
+}
+.full-height {
+  height: 100%;
+}
+.d-flex { 
+  display: flex;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-column {
+  flex-direction: column;
+}
+.justify-center {
+  justify-content: center;
+  justify-items: center;
+}
+.align-center {
+  align-items: center;
+  align-content: center;
+}
+button {
+  padding: 5px 20px;
+  min-width: 80px;
+  background-color: #{$green};
+  color: white;
+  border: none;
+  outline: none;
+  margin: 10px;
+  font-size: 1rem;
+}
+p {
+  margin: 10px 0 0 0 ;
+}
+
+$spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .ma-#{$space} {
+      margin: #{$space}px !important
+    }
+    .mx-#{$space} {
+      margin: 0 #{$space}px !important
+    }
+    .my-#{$space} {
+      margin: #{$space}px  0 !important
+    }
+
+    .m#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+  
+    .pa-#{$space} {
+      padding: #{$space}px !important
+    }
+    .px-#{$space} {
+      padding: 0 #{$space}px !important
+    }
+    .py-#{$space} {
+      padding: #{$space}px  0 !important
+    }
+   .p#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
